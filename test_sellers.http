@@ -1,0 +1,98 @@
+# Набор тестов для эндпоинтов которые можно запустить
+# в VSCode с помощью плагина  REST Client
+# Найти можно по идентификатору: humao.rest-client
+# Tunder Client не позволяет свободно импортировать-экспортировать записи,
+# поэтому перешел на этот плагин. Он тоже хорош :-)
+
+# Регистрация продавца
+POST http://localhost:8000/api/v1/seller/ HTTP/1.1
+content-type: application/json
+
+{
+    "first_name": "Ivan",
+    "last_name": "Ivanov",
+    "email": "example@mail.ru",
+    "password": "12345678"
+}
+
+###
+
+POST http://localhost:8000/api/v1/seller/ HTTP/1.1
+content-type: application/json
+
+{
+    "first_name": "Ksyusha",
+    "last_name": "Razdorskaya",
+    "email": "example@mail.ru",
+    "password": "12345678"
+}
+
+###
+
+POST http://localhost:8000/api/v1/seller/ HTTP/1.1
+content-type: application/json
+
+{
+    "first_name": "Misha",
+    "last_name": "Kochergin",
+    "email": "example@mail.ru",
+    "password": "12345678"
+}
+
+###
+
+
+# Регистрация продавца без имени
+POST http://localhost:8000/api/v1/seller/ HTTP/1.1
+content-type: application/json
+
+{
+    "first_name": "",
+    "last_name": "Ivanov",
+    "email": "example@mail.ru",
+    "password": "12345678"
+}
+
+###
+
+# Регистрация пользователя без логина
+POST http://localhost:8000/api/v1/seller/ HTTP/1.1
+content-type: application/json
+
+{
+    "first_name": "Ivan",
+    "last_name": "Ivanov",
+    "email": "",
+    "password": "12345678"
+}
+
+###
+
+# Получаем список продавцов
+GET http://localhost:8000/api/v1/seller/ HTTP/1.1
+
+###
+
+# Получаем продавца по его ИД
+GET http://localhost:8000/api/v1/seller/1 HTTP/1.1
+
+###
+
+# Обновляем поля в данных о продавце
+PUT http://localhost:8000/api/v1/seller/1 HTTP/1.1
+content-type: application/json
+
+{
+    "id": 0,
+    "first_name": "Misha",
+    "last_name": "Ivanov",
+    "email": "example@mail.com"
+}
+
+###
+
+# Удаляем продавца
+DELETE http://localhost:8000/api/v1/seller/2 HTTP/1.1
+content-type: application/json
+
+###
